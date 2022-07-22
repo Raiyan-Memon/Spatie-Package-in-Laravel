@@ -1,5 +1,8 @@
 <?php
-
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\AdminController;
+use Spatie\Permission\Models\Role;
+// use Illuminate\Routing\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('/post','PostController');
+Route::resource('/admin', 'AdminController')->middleware('role:admin');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
