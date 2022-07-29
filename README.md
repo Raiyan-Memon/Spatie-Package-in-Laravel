@@ -8,3 +8,4 @@
 </p>
 
 ## Spatie Laravel Package for Admin and users Permission.
+### With Repository Patten.
