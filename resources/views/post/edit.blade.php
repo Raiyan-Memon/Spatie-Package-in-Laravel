@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        @foreach ($edit_data as $item)
+        @foreach ($editData as $item)
             <form action="{{ route('posts.update', $item->id) }}" method="POST">
                 @csrf
                 @method('PATCH')

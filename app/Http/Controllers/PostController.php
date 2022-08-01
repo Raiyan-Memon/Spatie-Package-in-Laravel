@@ -36,14 +36,14 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        $showpost = $this->post->get($post);
-        return view('post.details', compact('showpost'));
+        $showPost = $this->post->get($post);
+        return view('post.details', compact('showPost'));
     }
 
     public function edit(Post $post)
     {
-        $edit_data = $this->post->get($post);
-        return view('post.edit', compact('edit_data'));
+        $editData = $this->post->get($post);
+        return view('post.edit', compact('editData'));
     }
 
     public function update(StorePostRequest $request, Post $post)
