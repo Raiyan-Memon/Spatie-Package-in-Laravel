@@ -48,6 +48,11 @@
                         Admin
                     </a>
                 @endrole
+
+                <a class="navbar-brand" href="{{ url('/posts') }}">
+                    Posts
+                </a>
+
                 @role('editor|adder|deletor|commentor|admin')
                     {{ auth()->user()->name }}
                 @endrole
@@ -82,6 +87,7 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
+
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @role('admin')
                                         <a class="dropdown-item" href="{{ route('admin.index') }}">
@@ -93,8 +99,6 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                         style="display: none;">
                                         @csrf

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <a href="{{ route('post.index') }}"><button class="btn btn-primary btn-sm">Go To Post</button></a>
+        <a href="{{ route('posts.index') }}"><button class="btn btn-primary btn-sm">Go To Post</button></a>
         <h3>Users List</h3>
         <table class="table table-striped">
             <thead>
@@ -17,7 +17,8 @@
                         <th scope="row">{{ $item->id }}</th>
                         <td>{{ $item->name }}</td>
                         <td>
-                            <a href="{{ route('admin.show', $item->id) }}"><button class="btn btn-primary btn-sm">Show</button></a>
+                            <a href="{{ route('admin.show', $item->id) }}"><button
+                                    class="btn btn-primary btn-sm">Show</button></a>
                         </td>
                     </tr>
                 @endforeach

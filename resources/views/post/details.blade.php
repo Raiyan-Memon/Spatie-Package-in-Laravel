@@ -5,6 +5,6 @@
             <h3>{{ $showpost->title }}</h3>
             <p>{{ $showpost->desc }}</p>
         @endforeach
-        <a href="{{ route('post.index') }}"><button class="btn btn-primary btn-sm">Back</button></a>
+        <a href="{{ route('posts.index') }}"><button class="btn btn-primary btn-sm">Back</button></a>
     </div>
 @endsection

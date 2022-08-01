@@ -19,16 +19,16 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {
-        if ($request->add_role_id == '') {
-            $user_id = $request->remove_role_id;
-            $role_name = $request->rolename;
-            $user_data = $this->admin->get($user_id);
-            $this->admin->removeRole($user_data, $role_name);
+        if ($request->addRoleId == '') {
+            $userId = $request->removeRoleId;
+            $roleName = $request->roleName;
+            $RemoveUserData = $this->admin->get($userId);
+            $this->admin->removeRole($RemoveUserData, $roleName);
         } else {
-            $user = $request->add_role_id;
-            $user_data = $this->admin->get($user);
+            $user = $request->addRoleId;
+            $userData = $this->admin->get($user);
             $role = $request->role;
-            $this->admin->addRole($user_data, $role);
+            $this->admin->addRole($userData, $role);
         }
         return back();
     }
