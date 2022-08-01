@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Interfaces\PostRepositoryInterface;
 use App\Post;
 use Illuminate\Http\Request;
@@ -26,11 +27,11 @@ class PostController extends Controller
         return view('post.create');
     }
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        $store = $request->all('title', 'desc');
-        $this->post->createOrUpdate($store);
-        return redirect('post');
+        $validated = $request->validated();
+        $this->post->createOrUpdate($validated);
+        return redirect('posts');
     }
 
     public function show(Post $post)
@@ -41,16 +42,16 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        $editdata = $this->post->get($post);
-        return view('post.edit', compact('editdata'));
+        $edit_data = $this->post->get($post);
+        return view('post.edit', compact('edit_data'));
     }
 
-    public function update(Request $request, Post $post)
+    public function update(StorePostRequest $request, Post $post)
     {
-        $input = $request->all();
+        $validated = $request->validated();
         $post = $this->post->get($post->id);
-        $this->post->createOrUpdate($input, $post);
-        return redirect('post');
+        $this->post->createOrUpdate($validated, $post);
+        return redirect('posts');
     }
 
     public function destroy($post)

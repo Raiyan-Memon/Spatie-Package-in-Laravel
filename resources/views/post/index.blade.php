@@ -7,25 +7,24 @@
             cursor: pointer;
         }
     </style>
-
     <div class="container">
         @role('admin|adder')
-            <a href="{{ route('post.create') }}">
+            <a href="{{ route('posts.create') }}">
                 <button class="btn btn-success btn-sm">Add Post</button>
             </a>
         @endrole
         <div class="row">
-            @foreach ($post as $postitem)
+            @foreach ($post as $postItem)
                 <div class="col-3 mb-3">
                     <div class="card">
                         <div class="card-header">
-                            <h3>{{ $postitem->title }}</h3>
+                            <h3>{{ $postItem->title }}</h3>
                             @role('admin|editor')
-                                <a href="{{ route('post.edit', $postitem->id) }}">
+                                <a href="{{ route('posts.edit', $postItem->id) }}">
                                     <button class="btn btn-info btn-sm">Edit</button></a>
                             @endrole
                             @role('admin|deletor')
-                                <form action="{{ route('post.destroy', $postitem->id) }}" method="POST">
+                                <form action="{{ route('posts.destroy', $postItem->id) }}" method="POST">
                                     @csrf @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">
                                         Delete
@@ -34,9 +33,10 @@
                             @endrole
                         </div>
                         <div class="card-body">
-                            <p>{{ $postitem->desc }}</p>
+                            <p>{{ $postItem->desc }}</p>
                             <p class="text-right">
-                                <a href="{{ route('post.show', $postitem->id) }}" class="text-end showmore">Show More >></a>
+                                <a href="{{ route('posts.show', $postItem->id) }}" class="text-end showmore">Show More
+                                    >></a>
                             </p>
                         </div>
                     </div>

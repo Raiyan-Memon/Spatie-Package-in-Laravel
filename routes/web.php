@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/post','PostController');
+Route::resource('/posts','PostController');
 Route::resource('/admin', 'AdminController')->middleware('role:admin');
 
 Auth::routes();
