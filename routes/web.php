@@ -15,7 +15,7 @@ use Spatie\Permission\Models\Role;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('posts');
 });
 
 Route::resource('/posts','PostController');
