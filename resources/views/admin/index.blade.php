@@ -17,7 +17,7 @@
                         <th scope="row">{{ $item->id }}</th>
                         <td>{{ $item->name }}</td>
                         <td>
-                            <a href="{{ route('admin.show', $item->id) }}"><button
+                            <a href="{{ route('roles.show', $item->id) }}"><button
                                     class="btn btn-primary btn-sm">Show</button></a>
                         </td>
                     </tr>

@@ -12,18 +12,26 @@ class PostRepository implements PostRepositoryInterface
         return Post::all();
     }
 
-    public function createOrUpdate($request, $post = null)
+    public function store($request)
     {
-        return Post::updateOrCreate(['id' => $post->id ?? ''], $request);
+        return Post::create($request->all());
     }
 
-    public function get($post)
+    public function updatePost($request, $post)
+    {
+        $update = $this->getUserById($post);
+        $update->update($request->all());
+        $update->save();
+    }
+
+    public function getUserById($post)
     {
         return Post::find($post);
     }
 
     public function delete($id)
     {
-        return $id->delete();
+        $delete = $this->getUserById($id);
+        return $delete->delete();
     }
 }

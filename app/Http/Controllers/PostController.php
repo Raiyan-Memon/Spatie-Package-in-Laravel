@@ -29,35 +29,31 @@ class PostController extends Controller
 
     public function store(StorePostRequest $request)
     {
-        $validated = $request->validated();
-        $this->post->createOrUpdate($validated);
+        $this->post->store($request);
         return redirect('posts');
     }
 
     public function show(Post $post)
     {
-        $showPost = $this->post->get($post);
+        $showPost = $this->post->getUserById($post);
         return view('post.details', compact('showPost'));
     }
 
     public function edit(Post $post)
     {
-        $editData = $this->post->get($post);
+        $editData = $this->post->getUserById($post);
         return view('post.edit', compact('editData'));
     }
 
-    public function update(StorePostRequest $request, Post $post)
+    public function update(StorePostRequest $request,  $post)
     {
-        $validated = $request->validated();
-        $post = $this->post->get($post->id);
-        $this->post->createOrUpdate($validated, $post);
+        $this->post->updatePost($request, $post);
         return redirect('posts');
     }
 
     public function destroy($post)
     {
-        $delete = $this->post->get($post);
-        $this->post->delete($delete);
+        $this->post->delete($post);
         return back();
     }
 }

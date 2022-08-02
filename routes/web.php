@@ -2,7 +2,10 @@
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminController;
 use Spatie\Permission\Models\Role;
-// use Illuminate\Routing\Route;
+use App\Http\Controllers\UserController;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +23,7 @@ Route::get('/', function () {
 
 Route::resource('/posts','PostController');
 Route::resource('/admin', 'AdminController')->middleware('role:admin');
+Route::resource('/roles', 'UserController')->middleware('role:admin');
 
 Auth::routes();
 

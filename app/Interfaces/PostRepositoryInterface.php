@@ -5,7 +5,8 @@ namespace App\Interfaces;
 interface PostRepositoryInterface
 {
     public function all();
-    public function createOrUpdate($request, $post = null);
-    public function get($id);
+    public function store($request);
+    public function updatePost($request, $post);
+    public function getUserById($id);
     public function delete($id);
 }

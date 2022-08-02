@@ -10,7 +10,7 @@
         <h5>Email : {{ $show->email }}</h5>
         <h6>
             Roles : @foreach ($roles as $roleName)
-                <form class="d-inline-block" action="{{ route('admin.store', $roleName->id) }}" method="POST">
+                <form class="d-inline-block" action="{{ route('roles.store', $roleName->id) }}" method="POST">
                     @csrf
                     <input type="hidden" name="removeRoleId" id="" value="{{ $show->id }}">
                     <input type="hidden" name="roleName" id="" value="{{ $roleName->name }}">
@@ -25,7 +25,7 @@
         @php
             $role = DB::select('select * from spatie.roles');
         @endphp
-        <form action="{{ route('admin.store') }}" method="POST">
+        <form action="{{ route('roles.store') }}" method="POST">
             @csrf
             <select name="role" id="">
                 <option value="">Select From Roles</option>

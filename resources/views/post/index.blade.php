@@ -8,11 +8,9 @@
         }
     </style>
     <div class="container">
-        @role('admin|adder')
-            <a href="{{ route('posts.create') }}">
-                <button class="btn btn-success btn-sm">Add Post</button>
-            </a>
-        @endrole
+        <a href="{{ route('posts.create') }}">
+            <button class="btn btn-success btn-sm">Add Post</button>
+        </a>
         <div class="row">
             @foreach ($post as $postItem)
                 <div class="col-3 mb-3">
