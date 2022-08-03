@@ -11,18 +11,4 @@ class AdminController extends Controller
     {
         $this->admin = $admin;
     }
-    public function index()
-    {
-
-    }
-
-    public function store(Request $request)
-    {
-        
-    }
-
-    public function show($admin)
-    {
-        
-    }
 }

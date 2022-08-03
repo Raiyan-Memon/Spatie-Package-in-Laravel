@@ -4,6 +4,5 @@ namespace App\Interfaces;
 
 interface AdminRepositoryInterface
 {
-  
-   
+  //
 }

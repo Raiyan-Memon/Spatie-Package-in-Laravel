@@ -20,7 +20,7 @@ class UserRepository implements UserRepositoryInterface{
 
     public function addRole($user_data, $role_name)
     {
-        return $user_data->assignRole($role_name);
+        return $user_data->assignRole($role_name);   
     }
 
     public function removeRole($user_data, $role_name)

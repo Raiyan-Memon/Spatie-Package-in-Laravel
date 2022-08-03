@@ -19,19 +19,18 @@ class PostRepository implements PostRepositoryInterface
 
     public function updatePost($request, $post)
     {
-        $update = $this->getUserById($post);
-        $update->update($request->all());
-        $update->save();
+        $update = $this->getPostById($post);
+        return $update->update($request->all());
     }
 
-    public function getUserById($post)
+    public function getPostById($post)
     {
         return Post::find($post);
     }
 
     public function delete($id)
     {
-        $delete = $this->getUserById($id);
+        $delete = $this->getPostById($id);
         return $delete->delete();
     }
 }

@@ -26,13 +26,14 @@ class UserController extends Controller
             $roleName = $request->roleName;
             $RemoveUserData = $this->user->getUserById($userId);
             $this->user->removeRole($RemoveUserData, $roleName);
-        } else {
+            return back()->with('roleRemoved','Role has Remove'); 
+        } 
             $user = $request->addRoleId;
             $userData = $this->user->getUserById($user);
             $role = $request->role;
             $this->user->addRole($userData, $role);
-        }
-        return back();  
+            return back()->with('roleAssigned','Role has Assigned');         
+       
     }
 
     public function show($id)

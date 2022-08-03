@@ -7,5 +7,5 @@ use App\User;
 
 class AdminRepository implements AdminRepositoryInterface
 {
-
+  //
 }
